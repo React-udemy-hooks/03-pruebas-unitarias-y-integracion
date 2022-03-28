@@ -3,6 +3,7 @@
 1. [Intro pruebas unitarias y de integración](#schema1)
 1. [Primera Prueba](#schema2)
 1. [Jest - Expect - toBe](#schema3)
+1. [Pruebas 02-template-string.js](#schema4)
 
 
 
@@ -100,3 +101,70 @@ test('debe ser true', () => {
 <a name="schema3"></a>
 
 # 3 Jest - Expect - toBe
+Doc: https://jestjs.io/
+
+Doc: https://jestjs.io/docs/expect
+
+- Vamos a cambiar `demo.test.js`
+~~~js
+
+test('deben ser iguales los string', () => {
+  // 1. Inicialización 
+  const mensaje = 'Hola Mundo';
+
+  // 2. Estímulo
+  const mensaje2 = `Hola Mundo`
+
+  // 3. Observar el comportamient
+  expect( mensaje).toBe(mensaje2)
+  
+})
+~~~
+
+- Para tener organizadas todas las pruebas de un mismo archivo creamos una función `describe` y metemos todas la funciones test dentro,
+~~~js
+describe('Pruebas en el archivo demo.test.js', () => {
+  test("deben ser iguales los string", () => {
+    // 1. Inicialización
+    const mensaje = "Hola Mundo";
+
+    // 2. Estímulo
+    const mensaje2 = `Hola Mundo`;
+
+    // 3. Observar el comportamient
+    expect(mensaje).toBe(mensaje2);
+  });
+})
+~~~
+<hr>
+
+<a name="schema4"></a>
+
+# 4 Pruebas 02-template-string.js
+Creamos dentro de la carpeta `test` la misma estructura de carpeta donde tenemos los archivos para hacer los test, entonces creamos la carpeta `base` y dentro de esta `02-template-string.test.js`
+- 1. Tenemos que exportar la función `getSaludo` de `02-template-string.js`
+~~~js
+export function getSaludo(nombre) {
+    return 'Hola ' + nombre;
+}
+~~~
+- Por lo tanto tenemos que importar `getSaludo` en `02-template-string.test.js`
+~~~js
+import { getSaludo } from "../../base/02-template-string"
+
+
+describe('Pruebas en 02-template-string.js', () => {
+
+  test('getSaludo debe retornar: Hola Patricia', () => { 
+
+    const nombre = 'Patricia'
+
+    const saludo = getSaludo(nombre)
+    console.log(saludo)
+
+    expect( saludo ).toBe( 'Hola ' + nombre )
+
+
+  })
+})
+~~~
