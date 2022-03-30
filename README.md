@@ -168,3 +168,37 @@ describe('Pruebas en 02-template-string.js', () => {
   })
 })
 ~~~
+
+<hr>
+
+<a name="schema5"></a>
+
+# 5 toEqual
+Pruebas 05-funciones.js.
+
+Exportamos la función que vamos a testear
+~~~js
+export const getUser = () => ({
+        uid: 'ABC123',
+        username: 'El_Papi1502'
+});
+~~~
+`05-funciones.test.js` al poner toBe para comparar dos objetos nos da un error, porque toBe no compara objetos hay que usar toEqual
+~~~js
+describe('Pruebas en 05-funciones', () => {
+  test('getUser debe retornar un objeto', () => { 
+    const userTest = {
+      uid: "ABC123",
+      username: "El_Papi1502",
+    };
+    const user = getUser();
+    console.log(user)
+
+    expect(user).toBe(userTest);
+   })
+})
+~~~
+Cambiando toBe por toEqual nos pasa el test correctamente
+~~~js
+  expect(user).toEqual(userTest);
+~~~
