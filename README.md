@@ -4,6 +4,7 @@
 1. [Primera Prueba](#schema2)
 1. [Jest - Expect - toBe](#schema3)
 1. [Pruebas 02-template-string.js](#schema4)
+1. [toEqual](#schema5)
 
 
 
@@ -201,4 +202,39 @@ describe('Pruebas en 05-funciones', () => {
 Cambiando toBe por toEqual nos pasa el test correctamente
 ~~~js
   expect(user).toEqual(userTest);
+~~~
+<hr>
+
+<a name="schema6"></a>
+
+# 6 Pruebas 07-deses-arr.js
+- Pruebas de test 07-deses-arr.js y creamos el archivo `07-deses-arr.test.js`
+
+- Primera versión
+~~~js
+
+import { retornaArreglo } from "../../base/07-deses-arr"
+
+describe('Pruenas en deses 7', () => {
+  test('Debe retornar un arreglo', async () => { 
+    const arr = retornaArreglo()
+    expect(arr).toEqual(['ABC', 123])
+  })
+})
+~~~
+- Segunda version con destructuración
+~~~js
+import { retornaArreglo } from "../../base/07-deses-arr"
+
+describe('Pruenas en deses 7', () => {
+  test('Debe retornar un arreglo', async () => { 
+    const [letras, numeros] = retornaArreglo()
+
+    expect(letras).toBe('ABC');
+    expect(typeof letras).toBe('string');
+
+    expect(numeros).toBe(123);
+    expect(typeof numeros).toBe("number");
+  })
+})
 ~~~
