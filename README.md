@@ -5,6 +5,7 @@
 1. [Jest - Expect - toBe](#schema3)
 1. [Pruebas 02-template-string.js](#schema4)
 1. [toEqual](#schema5)
+1. [Pruebas 07-deses-arr.js](#schema6)
 
 
 
@@ -238,3 +239,7 @@ describe('Pruenas en deses 7', () => {
   })
 })
 ~~~
+
+<a name="schema7"></a>
+
+# 7 Pruebas 0-imp-exp.js
