@@ -242,4 +242,51 @@ describe('Pruenas en deses 7', () => {
 
 <a name="schema7"></a>
 
-# 7 Pruebas 0-imp-exp.js
+# 7 Pruebas 8-imp-exp.js
+- Creamos `08-imp-exp.test` y el `hereo.js`
+- Primera version, cuando sabemos que el id está en el archivo
+~~~js
+import { getHeroeById } from '../../base/08-imp-exp'
+import heroes from '../../data/heroes'
+
+
+
+describe('Pruebas en funciones de Héroes', () => {
+  test('debe retornar un héroe por id', () => { 
+    
+    const id = 1
+
+    const heroe = getHeroeById(id)
+    
+    const heroeData = heroes.find(h => h.id === id)
+    expect(heroe).toEqual(heroeData)
+
+    })
+
+
+})
+~~~
+- Segunda prueba cuando el id no está dentro del archivo `heroes.js`
+~~~js
+  test("debe retornar un undefined si el heroe no existe", () => {
+    const id = 10;
+
+    const heroe = getHeroeById(id);
+
+
+    expect(heroe).toBe(undefined);
+  });
+~~~
+- Tercera filtrando valores
+~~~js
+  test("debe retornar los héroes de DC", () => {
+    const ownerDC = 'DC';
+
+    const DCheroes = getHeroesByOwner(ownerDC)
+    const DCheoresTest = heroes.filter((h) => h.owner === ownerDC)
+    expect(DCheroes).toEqual(DCheoresTest);
+    
+  
+
+  });
+~~~
