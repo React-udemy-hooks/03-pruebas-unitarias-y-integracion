@@ -6,7 +6,7 @@
 1. [Pruebas 02-template-string.js](#schema4)
 1. [toEqual](#schema5)
 1. [Pruebas 07-deses-arr.js](#schema6)
-1. [7 Pruebas 8-imp-exp.js](#schema7)
+1. [Pruebas 8-imp-exp.js](#schema7)
 1. [Pruebas para tareas asíncronas](#schema8)
 
 
