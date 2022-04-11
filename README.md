@@ -6,6 +6,8 @@
 1. [Pruebas 02-template-string.js](#schema4)
 1. [toEqual](#schema5)
 1. [Pruebas 07-deses-arr.js](#schema6)
+1. [7 Pruebas 8-imp-exp.js](#schema7)
+1. [Pruebas para tareas asíncronas](#schema8)
 
 
 
@@ -289,4 +291,38 @@ describe('Pruebas en funciones de Héroes', () => {
   
 
   });
+~~~
+
+<a name="schema8"></a>
+
+# 8 Pruebas para tareas asíncronas
+- Creamos `09-promesas.test.js`
+
+  -Ponemos el argumento `done` para decirle al test que hasta que no esté resuelta la promesa no se ejecute el test. Y finalizamos **siempre** con `done()`para hacer saber al test que hemos terminado con los test.
+~~~js
+import { getHeroeByIdAsync } from "../../base/09-promesas"
+
+describe('Pruebas con promesas', () => { 
+  test('Debe retornar un héroe con getHeroeById Async', (done) => { 
+    const id = 1
+    getHeroeByIdAsync(id)
+      .then(heroe => {
+        expect(true).toBe(false)
+        done()
+    })
+   })
+ })
+~~~
+- Probamos con un `id = 1`
+~~~js
+describe('Pruebas con promesas', () => { 
+  test('Debe retornar un héroe con getHeroeById Async', (done) => { 
+    const id = 1
+    getHeroeByIdAsync(id)
+      .then(heroe => {
+        expect(heroe).toBe(heroes[0])
+        done()
+    })
+   })
+ })
 ~~~
