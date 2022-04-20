@@ -8,6 +8,7 @@
 1. [Pruebas 07-deses-arr.js](#schema6)
 1. [Pruebas 8-imp-exp.js](#schema7)
 1. [Pruebas para tareas asíncronas](#schema8)
+1. [Pruebas con async-await](#schema9)
 
 
 
@@ -325,4 +326,21 @@ describe('Pruebas con promesas', () => {
     })
    })
  })
+~~~
+
+
+<a name="schema9"></a>
+
+# 9 Pruebas con async-await
+~~~js
+import { getImagen } from "../../base/11-async-await"
+
+
+describe('Pruebas async-await', () => { 
+  test('Debe retornr la url de la imagen', async() => { 
+    const url = await getImagen();
+    console.log(url)
+    expect(typeof url).toBe('string')
+   })
+})
 ~~~
